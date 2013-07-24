@@ -65,8 +65,8 @@ class mysql::backup (
     content => template('mysql/mysqlbackup.sh.erb'),
   }
 
-  if ! defined(File[$mysqlbackupdir]) {
-    file { $mysqlbackupdir:
+  if ! defined(File[$backupdir]) {
+    file { $backupdir:
       ensure => 'directory',
       path   => $backupdir,
       mode   => '0700',
